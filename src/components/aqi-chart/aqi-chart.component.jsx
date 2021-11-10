@@ -9,7 +9,7 @@ const generateChartData = (data) => {
   const chartData = [];
 
   if (data && data.forecast) {
-    for (var i = 0; i < 7; i++) {
+    for (let i = 0; i < 7; i++) {
       let newDate = data.forecast.daily.o3[i]
         ? data.forecast.daily.o3[i].day
         : null;
@@ -76,7 +76,7 @@ const AqiChart = ({ data }) => {
         bullet.horizontalCenter = "middle";
         bullet.verticalCenter = "middle";
 
-        var triangle = bullet.createChild(am4core.Triangle);
+        let triangle = bullet.createChild(am4core.Triangle);
         triangle.stroke = interfaceColors.getFor("background");
         triangle.strokeWidth = 2;
         triangle.direction = "top";
@@ -91,7 +91,7 @@ const AqiChart = ({ data }) => {
         bullet.horizontalCenter = "middle";
         bullet.verticalCenter = "middle";
 
-        var rectangle = bullet.createChild(am4core.Rectangle);
+        let rectangle = bullet.createChild(am4core.Rectangle);
         rectangle.stroke = interfaceColors.getFor("background");
         rectangle.strokeWidth = 2;
         rectangle.width = 10;
