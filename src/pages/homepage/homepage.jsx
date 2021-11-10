@@ -4,7 +4,6 @@ import axios from "axios";
 import { Container, Dimmer, Loader, Segment, Grid } from "semantic-ui-react";
 import AqiLevelIcon from "../../components/aqi-level-icon/aqi-level-icon.component";
 import AqiChart from "../../components/aqi-chart/aqi-chart.component";
-import "./homepage.scss";
 
 const HomePage = () => {
   const [data, setData] = useState("");
