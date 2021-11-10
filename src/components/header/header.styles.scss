@@ -1,0 +1,54 @@
+.header {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+  padding: 10px;
+  .logo-container {
+    height: 80px;
+    width: 80px;
+  }
+
+  .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .option {
+      padding: 10px 15px;
+      cursor: pointer;
+      position: relative;
+      color: #202020;
+      transition: all 0.3s ease-in-out 0s;
+      font-family: BrandonLight, sans-serif;
+    }
+    .option:hover {
+      color: #d2a784;
+    }
+
+    .option::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: #d2a784;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease-in-out 0s;
+      transition: all 0.3s ease-in-out 0s;
+    }
+
+    .option:hover::after {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  }
+}

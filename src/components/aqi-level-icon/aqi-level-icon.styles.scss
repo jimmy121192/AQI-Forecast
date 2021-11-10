@@ -1,0 +1,25 @@
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--lv1 {
+    color: #a2dc61;
+  }
+  &--lv2 {
+    color: #fbd651;
+  }
+  &--lv3 {
+    color: #fd9a57;
+  }
+  &--lv4 {
+    color: #ff6a6e;
+  }
+  &--lv5 {
+    color: #a97bbc;
+  }
+  &--lv6 {
+    color: #9c5973;
+  }
+}
