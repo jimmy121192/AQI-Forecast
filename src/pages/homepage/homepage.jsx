@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import axios from "axios";
 import { Container, Dimmer, Loader, Segment, Grid } from "semantic-ui-react";
 import AqiLevelIcon from "../../components/aqi-level-icon/aqi-level-icon.component";
 import AqiChart from "../../components/aqi-chart/aqi-chart.component";
+import CityInputSearch from "../../components/city-input-search/city-input-search.component";
 
 const HomePage = () => {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [url, setUrl] = useState("");
 
-  const handleInputChange = (place) => {
-    let city = place.value.structured_formatting.main_text; //to keep only city name
+  const handleInputChange = (city) => {
     setUrl(
       `https://api.waqi.info/feed/${city}/?token=${process.env.REACT_APP_WAQI_API_TOKEN}`
     );
@@ -39,12 +38,7 @@ const HomePage = () => {
   return (
     <Container>
       <h1>Air Quality Checking</h1>
-      <GooglePlacesAutocomplete
-        apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
-        selectProps={{
-          onChange: handleInputChange,
-        }}
-      />
+      <CityInputSearch searchCity={handleInputChange} />
       <Segment>
         {isLoading ? (
           <Dimmer active inverted>
@@ -59,7 +53,10 @@ const HomePage = () => {
               <Grid.Column width={13}>
                 <h2>Station: {data.city.name}</h2>
                 <p>Current AQI: {data.aqi}</p>
-                <p>Geo Coordinate: {data.city.geo.toString()}</p>
+                <p>
+                  Geo Coordinate:{" "}
+                  {data.city.geo ? data.city.geo.toString() : null}
+                </p>
                 <a href={data.city.url} target="_blank" rel="noreferrer">
                   Learn More
                 </a>

@@ -8,7 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | ---- | ------- |
 | NODE | 14.17.1 |
 
-- Integrated Google Places API
 - Add env variables before running the application.
 
 ### Deployment
